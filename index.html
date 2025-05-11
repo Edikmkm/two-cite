@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="script.js"/>
+  <link rel="stylesheet" href="style.css" />
+  <title>two.</title>
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-white shadow-md fixed top-0 w-full z-40">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-3xl font-bold text-black">two.</h1>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-6">
+        <button data-page="home" class="page-link active">Главная</button>
+        <button data-page="catalog" class="page-link">Каталог</button>
+        <button data-page="delivery" class="page-link">Доставка</button>
+        <button data-page="about" class="page-link">О нас</button>
+        <button data-page="cart" class="relative page-link cart-btn">
+          Корзина
+          <span id="cart-count" class="hidden absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-black">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12h18M3 6h18M3 18h18"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Overlay & Mobile Menu -->
+  <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-30"></div>
+  <nav id="mobile-menu" class="fixed top-0 right-0 bottom-0 w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-40">
+    <button id="close-menu" class="absolute top-4 right-4 text-gray-500 text-2xl">&times;</button>
+    <ul class="p-6 pt-16 space-y-6">
+      <li><button data-page="home" class="page-link block w-full text-left text-lg font-medium">Главная</button></li>
+      <li><button data-page="catalog" class="page-link block w-full text-left text-lg font-medium">Каталог</button></li>
+      <li><button data-page="delivery" class="page-link block w-full text-left text-lg font-medium">Доставка</button></li>
+      <li><button data-page="about" class="page-link block w-full text-left text-lg font-medium">О нас</button></li>
+      <li><button data-page="cart" class="page-link block w-full text-left text-lg font-medium relative">Корзина
+        <span id="mobile-cart-count" class="hidden absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+      </button></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="min-h-screen pt-16">
+    <section id="pages">
+      <div id="home" class="page active"></div>
+      <div id="catalog" class="page hidden"></div>
+      <div id="delivery" class="page hidden"></div>
+      <div id="about" class="page hidden"></div>
+      <div id="cart" class="page hidden"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-6">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      <p>&copy; <span id="year"></span> two. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg max-w-3xl w-full p-6 relative">
+      <button id="modal-close" class="absolute top-4 right-4 text-gray-500 text-2xl">&times;</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+</body>
+</html>
